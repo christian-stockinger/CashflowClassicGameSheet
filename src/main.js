@@ -12,8 +12,11 @@ import { createApp } from 'vue'
 
 // Plugins
 import { registerPlugins } from '@/plugins'
+import GameState from '@/assets/scripts/GameState'
 
 const app = createApp(App)
+
+app.config.globalProperties.gamestate = new GameState();
 
 registerPlugins(app)
 
