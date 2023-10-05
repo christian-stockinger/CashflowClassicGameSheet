@@ -9,6 +9,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/CashflowClassicGameSheet/',
   plugins: [
     vue({
       template: { transformAssetUrls }
@@ -30,10 +31,6 @@ export default defineConfig({
     }),
   ],
   define: { 'process.env': {} },
-  build: {
-    // Set the base path for production build
-    base: '/CashflowClassicGameSheet/' // Replace with your desired base path
-  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -49,7 +46,6 @@ export default defineConfig({
     ],
   },
   server: {
-    base: '/CashflowClassicGameSheet/',
     port: 3000,
   },
 })
