@@ -6,7 +6,10 @@ export default class GameState {
     this.income = 0;
     this.balance = 0;
     this.immobileAndCompanies = [];
+    this.stocks = [];
     this.interest = 0;
+    this.savings = 0;
+    this.metal = 0;
 
     GameState.instance = this;
   }
@@ -14,7 +17,7 @@ export default class GameState {
   get passivIncome(){
     let total = 0;
     for (const property of this.immobileAndCompanies) {
-      total += property.value;
+      total += property.cashflow;
     }
     return Number(this.interest) + total;
   }
