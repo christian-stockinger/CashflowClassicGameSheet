@@ -3,19 +3,31 @@ export default class GameState {
     if (GameState.instance) {
       return GameState.instance;
     }
-    this.gehalt = 0;
-    this.passivesEinkommen = 0;
-    this.gesammteAusgaben = 0;
+    this.income = 0;
     this.balance = 0;
+    this.immobileAndCompanies = [];
+    this.interest = 0;
 
     GameState.instance = this;
   }
 
-  get GetCashflow() {
-    return this.gehalt + this.passivesEinkommen - this.gesammteAusgaben;
+  get passivIncome(){
+    let total = 0;
+    for (const property of this.immobileAndCompanies) {
+      total += property.value;
+    }
+    return Number(this.interest) + total;
+  }
+
+  get totalExpenses(){
+    return 0;
+  }
+
+  get cashflow() {
+    return Number(this.income) + Number(this.passivIncome) - Number(this.totalExpenses);
   }
 
   CalculatePayday() {
-    this.balance += this.GetCashflow;
+    this.balance += this.cashflow;
   }
 }

@@ -13,22 +13,22 @@
     <v-row align="center" justify="center">
       <v-col class="ma-2">
         <v-row>
-          <InfoCard title="Monatlicher Cashflow" :text="state.GetCashflow + ' €'"/>
+          <InfoCard title="Monatlicher Cashflow" :text="parseFloat(state.cashflow).toFixed(2) + ' €'"/>
         </v-row>
         <v-row>
-          <InfoCard title="Kontostand" :text="state.balance + ' €'"/>
+          <InfoCard title="Kontostand" :text="parseFloat(state.balance).toFixed(2)  + ' €'"/>
         </v-row>
       </v-col>
 
       <v-col class="ma-2">
         <v-row>
-          <InfoCard title="Gehalt" :text="state.balance + ' €'"/>
+          <InfoCard title="Gehalt" :text="parseFloat(state.income).toFixed(2)  + ' €'"/>
         </v-row>
         <v-row>
-          <InfoCard title="Passives Einkommen" :text="state.passivesEinkommen + ' €'"/>
+          <InfoCard title="Passives Einkommen" :text="parseFloat(state.passivIncome).toFixed(2) + ' €'"/>
         </v-row>
         <v-row>
-          <InfoCard title="Gesamte Ausgaben" :text="state.gesammteAusgaben + ' €'"/>
+          <InfoCard title="Gesamte Ausgaben" :text="parseFloat(state.totalExpenses).toFixed(2) + ' €'"/>
         </v-row>
       </v-col>
     </v-row>
