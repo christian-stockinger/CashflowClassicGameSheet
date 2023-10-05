@@ -10,6 +10,13 @@ export default class GameState {
     this.interest = 0;
     this.savings = 0;
     this.metal = 0;
+    this.tax = 0;
+    this.bafoeg = 0;
+    this.carCredit = 0;
+    this.creditCardPayment = 0;
+    this.otherExpenses = 0;
+    this.ChildCost = 0;
+    this.ChildAmount = 0;
 
     GameState.instance = this;
   }
