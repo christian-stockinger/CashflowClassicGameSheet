@@ -45,6 +45,22 @@
         Zahltag
       </v-btn>
     </v-row>
+    <v-row>
+      <v-col cols="7">
+        <v-text-field type="number" label="Buchungs Summe" v-model="balanceChange" :rules="[rules.number]"/>
+      </v-col>
+      <v-col cols="5">
+        <v-btn
+          block
+          class="text-none"
+          color="grey-lighten-3"
+          size="x-large"
+          variant="flat"
+          @click="bookBalanceChange()"
+          text="Buchen"
+        />
+      </v-col>
+    </v-row>
 
   </v-container>
 </template>
@@ -60,7 +76,15 @@ export default {
       job: "",
       dream: "",
       auditor: "",
+      rules: this.rules,
+      balanceChange: 0
     };
-  }
+  },
+  methods: {
+    bookBalanceChange() {
+      this.state.balance += Number(this.balanceChange);
+      this.balanceChange = 0;
+    },
+  },
 };
 </script>
