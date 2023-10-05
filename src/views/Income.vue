@@ -16,11 +16,7 @@ export default {
   data() {
     return {
       state: this.gamestate,
-      rules: {
-        required: value => !!value || 'Required.',
-        number: value => !isNaN(value) || 'Zahl eingeben',
-        negative: value => Number(value) >= 0 || 'Zahl muss positiv sein',
-      }
+      rules: this.rules,
     };
   },
 };

@@ -17,6 +17,11 @@ import GameState from '@/assets/scripts/GameState'
 const app = createApp(App)
 
 app.config.globalProperties.gamestate = new GameState();
+app.config.globalProperties.rules = {
+  required: value => !!value || 'Required.',
+  number: value => !isNaN(value) || 'Zahl eingeben',
+  negative: value => Number(value) >= 0 || 'Zahl muss positiv sein',
+}
 
 registerPlugins(app)
 
