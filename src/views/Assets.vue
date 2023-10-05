@@ -17,7 +17,7 @@
 
 <script>
 import StockList from "@/components/StockList.vue";
-import PropertyList from "@/views/PropertyList.vue";
+import PropertyList from "@/components/PropertyList.vue";
 
 export default {
   components: {PropertyList, StockList},
