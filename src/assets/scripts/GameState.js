@@ -12,11 +12,15 @@ export default class GameState {
     this.metal = 0;
     this.tax = 0;
     this.bafoeg = 0;
+    this.bafoegRate = 0;
     this.carCredit = 0;
+    this.carCreditRate = 0;
     this.creditCardPayment = 0;
+    this.creditCardPaymentRate = 0;
     this.otherExpenses = 0;
     this.ChildCost = 0;
     this.ChildAmount = 0;
+    this.bankPayment = 0;
 
     GameState.instance = this;
   }
@@ -26,11 +30,23 @@ export default class GameState {
     for (const property of this.immobileAndCompanies) {
       total += property.cashflow;
     }
-    return Number(this.interest) + total;
+    return Number(this.interest) + Number(total);
   }
 
   get totalExpenses(){
     return 0;
+  }
+
+  get completeMortgage(){
+    let total = 0;
+    for (const property of this.immobileAndCompanies) {
+      total += property.mortage;
+    }
+    return total;
+  }
+
+  get bankLoanPayments() {
+    return Number(this.bankPayment) * 0.1;
   }
 
   get cashflow() {
