@@ -21,7 +21,7 @@
   <v-row>
     <v-dialog v-model="dialog" max-width="400px">
       <template v-slot:activator="{ on }">
-        <v-btn @click="dialog = !dialog" color="primary">Hinzufügen</v-btn>
+        <v-btn @click="dialog = !dialog" color="grey-lighten-3" block>Hinzufügen</v-btn>
       </template>
       <v-card>
         <v-card-title>Akiten/Fonds/CDs</v-card-title>
@@ -33,7 +33,7 @@
                         :rules="[rules.required,rules.number,rules.negative]"/>
         </v-card-text>
         <v-card-actions>
-          <v-btn @click="addStock" color="primary">Hinzufügen</v-btn>
+          <v-btn @click="addStock" color="primary" >Hinzufügen</v-btn>
           <v-btn @click="dialog = false" color="error">Abbrechen</v-btn>
         </v-card-actions>
       </v-card>

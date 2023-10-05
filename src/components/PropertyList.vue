@@ -20,7 +20,7 @@
   <v-row>
     <v-dialog v-model="dialog" max-width="400px">
       <template v-slot:activator="{ on }">
-        <v-btn @click="dialog = !dialog" color="primary">Hinzufügen</v-btn>
+        <v-btn @click="dialog = !dialog" color="grey-lighten-3" block>Hinzufügen</v-btn>
       </template>
       <v-card>
         <v-card-title>Neue Immobilie/Unternehmen</v-card-title>
