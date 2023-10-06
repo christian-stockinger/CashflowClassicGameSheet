@@ -34,7 +34,14 @@ export default class GameState {
   }
 
   get totalExpenses(){
-    return 0;
+    return Number(this.tax) +
+      Number(this.morgagePayment) +
+      Number(this.bafoegRate) +
+      Number(this.carCreditRate) +
+      Number(this.creditCardPaymentRate) +
+      Number(this.bankLoanPayments) +
+      Number(this.otherExpenses) +
+      (Number(this.ChildCost) * Number(this.ChildAmount));
   }
 
   get completeMortgage(){
@@ -47,6 +54,10 @@ export default class GameState {
 
   get bankLoanPayments() {
     return Number(this.bankPayment) * 0.1;
+  }
+
+  get morgagePayment(){
+    return Number(this.completeMortgage) * 0.01;
   }
 
   get cashflow() {

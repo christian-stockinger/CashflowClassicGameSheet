@@ -5,6 +5,9 @@
         <v-text-field label="Steuern" v-model="state.tax" type="number" prefix="€" :rules="[rules.required,rules.number,rules.negative]"/>
       </v-row>
       <v-row>
+        <v-text-field label="Eigenheim-Hypotek/Miete" variant="solo" :model-value ="parseFloat(state.morgagePayment)" prefix="€" readonly/>
+      </v-row>
+      <v-row>
         <v-text-field label="BAföG Darlehenszahlung" v-model="state.bafoegRate" type="number" prefix="€" :rules="[rules.number,rules.negative]"/>
       </v-row>
       <v-row>
