@@ -5,7 +5,7 @@
   <v-row>
     <v-list width="100%">
       <v-list-item v-for="(property, index) in state.immobileAndCompanies" :key="index" :value="property">
-        <v-list-item-title>{{ property.name }} {{ parseFloat(property.cashflow).toFixed(2) }} €</v-list-item-title>
+        <v-list-item-title>{{ propertyToString(property) }}</v-list-item-title>
         <template v-slot:append>
           <v-btn
             color="error"
@@ -78,6 +78,9 @@ export default {
     removeProperty(index) {
       this.state.immobileAndCompanies.splice(index, 1);
     },
+    propertyToString(property){
+      return `${property.name } Cashflow: ${parseFloat(property.cashflow).toFixed(2) } € Anzahlung: ${parseFloat(property.deposit).toFixed(2) } € Kosten: ${parseFloat(property.cost).toFixed(2) } € Hypothek: ${parseFloat(property.mortage).toFixed(2) } €`;
+    }
   },
 }
 </script>

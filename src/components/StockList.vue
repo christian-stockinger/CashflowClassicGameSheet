@@ -5,14 +5,14 @@
   <v-row>
     <v-list width="100%">
       <v-list-item v-for="(stock, index) in state.stocks" :key="index" :value="stock">
-        <v-list-item-title>{{ stock.name }} {{ stock.amount }} x {{ parseFloat(stock.value).toFixed(2) }} €
+        <v-list-item-title>{{ stockToString(stock) }}
         </v-list-item-title>
         <template v-slot:append>
           <v-btn
-              color="error"
-              icon="mdi-close"
-              variant="text"
-              @click="removeStock"
+            color="error"
+            icon="mdi-close"
+            variant="text"
+            @click="removeStock"
           />
         </template>
       </v-list-item>
@@ -33,7 +33,7 @@
                         :rules="[rules.required,rules.number,rules.negative]"/>
         </v-card-text>
         <v-card-actions>
-          <v-btn @click="addStock" color="primary" >Hinzufügen</v-btn>
+          <v-btn @click="addStock" color="primary">Hinzufügen</v-btn>
           <v-btn @click="dialog = false" color="error">Abbrechen</v-btn>
         </v-card-actions>
       </v-card>
@@ -67,6 +67,9 @@ export default {
     },
     removeStock(index) {
       this.state.stocks.splice(index, 1);
+    },
+    stockToString(stock) {
+      return `${stock.name} ${stock.amount} x ${parseFloat(stock.value).toFixed(2)} €`;
     }
   },
 }
