@@ -41,7 +41,7 @@
           color="grey-lighten-3"
           size="x-large"
           variant="flat"
-          @click="state.CalculatePayday()"
+          @click="state.calculatePayday()"
         >
           Zahltag
         </v-btn>
@@ -61,6 +61,18 @@
             text="Buchen"
           />
         </v-col>
+      </v-row>
+      <v-row>
+        <v-btn
+          block
+          class="text-none"
+          color="grey-darken-3"
+          size="x-large"
+          variant="flat"
+          @click="state.resetStorage()"
+        >
+          Reset
+        </v-btn>
       </v-row>
     </v-container>
   </v-app>

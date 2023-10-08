@@ -12,7 +12,7 @@ import { createApp } from 'vue'
 
 // Plugins
 import { registerPlugins } from '@/plugins'
-import GameState from '@/assets/scripts/GameState'
+import GameState from '@/state/GameState'
 
 const app = createApp(App)
 

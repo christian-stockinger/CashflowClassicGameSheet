@@ -3,6 +3,13 @@ export default class GameState {
     if (GameState.instance) {
       return GameState.instance;
     }
+
+    this.loadFromLocalStorage();
+
+    GameState.instance = this;
+  }
+
+  initClass() {
     this.income = 0;
     this.balance = 0;
     this.immobileAndCompanies = [];
@@ -21,8 +28,6 @@ export default class GameState {
     this.ChildCost = 0;
     this.ChildAmount = 0;
     this.bankPayment = 0;
-
-    GameState.instance = this;
   }
 
   get passivIncome(){
@@ -64,7 +69,29 @@ export default class GameState {
     return Number(this.income) + Number(this.passivIncome) - Number(this.totalExpenses);
   }
 
-  CalculatePayday() {
+  calculatePayday() {
     this.balance += this.cashflow;
+    this.saveToLocalStorage();
+  }
+
+  saveToLocalStorage() {
+    localStorage.setItem('gameState', JSON.stringify(this));
+  }
+
+  loadFromLocalStorage() {
+    const savedState = localStorage.getItem('gameState');
+    if (savedState) {
+      const parsedState = JSON.parse(savedState);
+      for (let key in parsedState) {
+        this[key] = parsedState[key];
+      }
+    }else {
+      this.initClass();
+    }
+  }
+
+  resetStorage() {
+    this.initClass();
+    this.saveToLocalStorage();
   }
 }
